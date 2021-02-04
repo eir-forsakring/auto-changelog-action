@@ -54,6 +54,9 @@ inputs:
   exclude_tags_regex:
     description: 'Apply a regular expression on tag names so that they can be excluded, for example: --exclude-tags-regex ".*+d{1,}".'
     required: false
+  max_issues:
+    description: 'The maximum number of issues to fetch to avoid exceeding the API rate limit.'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -72,4 +75,5 @@ runs:
     - ${{ inputs.issue_line_labels }}
     - ${{ inputs.github_site }}
     - ${{ inputs.github_api }}
-    - ${{ inputs.exclude_tags_regex}}
+    - ${{ inputs.exclude_tags_regex }}
+    - ${{ inputs.max_issues }}
